@@ -8,8 +8,8 @@ int main() {
 
 	setlocale(LC_ALL, "Russian");
 
-	string length;
-	string array;
+	string a;
+	string b;
 	string result;
 	string count;
 	string first, second;
@@ -18,34 +18,39 @@ int main() {
 	int k = 0;
 	int z = 0;
 	cout << "Введите размер последовательности: ";
-	cin >> length;
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	getline(cin, a);
 	cout << "Введите элементы последовательности, согласно ее размеру: ";
-	getline(cin, array);
-	length_int = atoi(length.c_str());
-	for (int i = 0; i < array.length(); i++) {
-		if (array[i] == ' ') counter++;
+	getline(cin, b);
+	length_int = atoi(a.c_str());
+	for (int i = 0; i < b.length(); i++)	
+	{
+		if (b[i] == ' ') counter++;
 	}
 	if (length_int != (counter + 1))
 		cout << "При чтении была обнаружена ошибка!" << endl;
-	else {
+	else 
+	{
 		cout << "Введите количество элементов, на которое необходимо сдвинуть последовательнось: ";
 		getline(cin, count);
-		if (count == "") {
+		if (count == "") 
+		{
 			cout << "При чтении была обнаружена ошибка!" << endl;
 		}
-		else {
-			while (k != (length_int - atoi(count.c_str()))) {
-				second = second + array[z];
-				if (array[z] == ' ') k++;
+		else
+		{
+			while (k != (length_int - atoi(count.c_str())))
+			{
+				second = second + b[z];
+				if (b[z] == ' ') k++;
 				z++;
 			}
-			for (int i = second.length(); i < array.length(); i++) {
-				first = first + array[i];
+			for (int i = second.length(); i < b.length(); i++)
+			{
+				first = first + b[i];
 			}
 
 			result = first + ' ' + second;
-			cout <<"Результат: " << result << endl;
+			cout << "Результат: " << result << endl;
 		}
 	}
 	cin.get();
