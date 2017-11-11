@@ -12,15 +12,13 @@ int main() {
 	string result;
 	int length_int;
 	int counter = 0;
-	int k = 0;
-	int z = 0;
-	int array1[100];
+	int с = 0;
 	cout << "Введите количество элементов последовательности: ";
 	getline(cin, a);
 	cout << "Введите последовательность для реверса, согласно ее разеру: ";
 	getline(cin, b);
 	length_int = atoi(a.c_str());
-	for (int i = 0; i < b.length(); i++) 
+	for (int i = 0; i < b.length(); i++)
 	{
 		if (b[i] == ' ') counter++;
 	}
@@ -28,19 +26,19 @@ int main() {
 		cout << "При чтении была обнаружена ошибка!" << endl;
 	else
 	{
-		for (int i = 0; i < (b.length() / 2); i++) 
+		for (int i = 0; i < (b.length() / 2); i++)
 		{
 			swap(b[i], b[(b.length()) - i - 1]);
 		}
-		while (true) 
+		while (true)
 		{
-			for (int i = z; i < b.length(); i++) {
+			for (int i = с; i < b.length(); i++) {
 				if (b[i] == ' ') {
-					z++;
+					с++;
 					break;
 				}
 				integer_str = integer_str + b[i];
-				z++;
+				с++;
 			}
 			if (integer_str == "") break;
 			for (int j = 0; j < ((integer_str.length()) / 2); j++)
