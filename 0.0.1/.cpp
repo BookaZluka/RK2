@@ -10,19 +10,19 @@ int main() {
 	string b;
 	string integer_str;
 	string result;
-	int length_int;
+	int length;
 	int counter = 0;
 	int с = 0;
 	cout << "Введите количество элементов последовательности: ";
 	getline(cin, a);
 	cout << "Введите последовательность для реверса, согласно ее разеру: ";
 	getline(cin, b);
-	length_int = atoi(a.c_str());
+	length = atoi(a.c_str());
 	for (int i = 0; i < b.length(); i++)
 	{
 		if (b[i] == ' ') counter++;
 	}
-	if (length_int != (counter + 1))
+	if (length != (counter + 1))
 		cout << "При чтении была обнаружена ошибка!" << endl;
 	else
 	{
