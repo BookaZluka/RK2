@@ -1,56 +1,42 @@
 #include <iostream>
-#include <string>
 
 int main() {
-
-	using namespace std;
-
-	setlocale(LC_ALL, "Russian");
-
-	string a;
-	string b;
-	string result;
-	string count;
-	string first, second;
-	int length;
-	int counter = 0;
-	int c = 0;
-	int d = 0;
-	cout << "Введите размер последовательности: ";
-	getline(cin, a);
-	cout << "Введите элементы последовательности, согласно ее размеру: ";
-	getline(cin, b);
-	length = atoi(a.c_str());
-	for (int i = 0; i < b.length(); i++)
-	{
-		if (b[i] == ' ') counter++;
-	}
-	if (length != (counter + 1))
-		cout << "При чтении была обнаружена ошибка!" << endl;
-	else
-	{
-		cout << "Введите количество элементов, на которое необходимо сдвинуть последовательнось: ";
-		getline(cin, count);
-		if (count == "")
-		{
-			cout << "При чтении была обнаружена ошибка!" << endl;
-		}
-		else
-		{
-			while (c != (length - atoi(count.c_str())))
-			{
-				second = second + b[d];
-				if (b[d] == ' ') c++;
-				d++;
-			}
-			for (int i = second.length(); i < b.length(); i++)
-			{
-				first = first + b[i];
-			}
-
-			result = first + ' ' + second;
-			cout << "Результат: " << result << endl;
-		}
-	}
-	cin.get();
+    using namespace std;
+    int i, n, x;
+    cout << "Введите размер последовательности: " << endl;
+    cin >> n;
+    if (n <= 0) {
+        cout << "error" << endl;
+        return 1;
+    }
+    int *a = new int [n];
+    cout << "Введите элементы последовательности: " << endl;
+    for (i = 0; i < n; i++) {   
+        cin >> a[i];
+    }
+    cout << "После какого элемента разделить последовательность?" << endl;
+    cin >> x;
+    if ( x <= 0) {
+        cout << "error" << endl;
+        return 1;
+    }
+    if ( x > n ) {
+        cout << "error" << endl;
+        return 1;
+    }
+    int b[x - 1], c[n - x - 1];
+    for (i = 0; i < x; i++) {
+        b[i] = a[i];
+    }
+    for (i = 0; i < n - x; i++) {
+        c[i] = a[i + x];
+    }
+    for (i = 0; i < n - x; i++) {
+        cout << c[i] << " ";
+    }
+    for (i = 0; i < x; i++) {
+        cout << b[i] << " ";
+    }
+    delete [] a;
+    return 0;
 }
